@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.visible {
+  display: block;
+}
+
+.inVisible {
+  visibility: hidden;
+}
