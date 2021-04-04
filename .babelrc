@@ -28,7 +28,8 @@
               "loose": true,
               "exclude": ["@babel/plugin-transform-regenerator"]
             }
-          ]
+          ],
+          "@babel/preset-react"
         ],
         "plugins": ["babel-plugin-transform-async-to-promises"]
       }

@@ -8,10 +8,6 @@ const style = {
 }
 
 const styles = {
-  menuWrapper: {
-    display: 'flex',
-    overflow: 'hidden',
-  },
   overflowMenu: open => ({
     display: 'flex',
     flexDirection: 'column',
@@ -35,9 +31,7 @@ const styles = {
 function App() {
   return (
     <ReactResponsiveMenu>
-      {props => {
-        console.log(props)
-        const { getMenuProps, showEllipsis, children, open, toggle } = props
+      {({ getMenuProps, showEllipsis, children, open, toggle }) => {
         return (
           <React.Fragment>
             <div {...getMenuProps({ id: 'Menu1', style })}>Home</div>
