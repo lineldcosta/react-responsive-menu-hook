@@ -26,7 +26,7 @@ function App() {
     <ReactResponsiveMenu>
       {({ getMenuProps, showEllipsis, children, open, toggle }) => {
         return (
-          <div>
+          <React.Fragment>
             <div {...getMenuProps({ id: 'home', style })}>Home</div>
             <div {...getMenuProps({ id: 'contactUs', style })}>Contact Us</div>
             <div {...getMenuProps({ id: 'aboutUs', style })}>About Us</div>
@@ -51,7 +51,7 @@ function App() {
                 </div>
               </div>
             )}
-          </div>
+          </React.Fragment>
         )
       }}
     </ReactResponsiveMenu>
