@@ -113,12 +113,15 @@ const ReactResponsiveMenu = ({ children }) => {
     ...props,
   })
 
-  const flattenChildren = children =>
-    isFragment(children)
-      ? children.props.children.filter(
-          child => child && child.props['data-targetid']
-        )
-      : children
+  const flattenChildren = React.useCallback(
+    children =>
+      isFragment(children)
+        ? children.props.children.filter(
+            child => child && child.props['data-targetid']
+          )
+        : children,
+    []
+  )
 
   const childProps = {
     getMenuProps: getMenuProps('menu'),
@@ -142,4 +145,4 @@ const ReactResponsiveMenu = ({ children }) => {
   )
 }
 
-export default ReactResponsiveMenu
+export default React.memo(ReactResponsiveMenu)
