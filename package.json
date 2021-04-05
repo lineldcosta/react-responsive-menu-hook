@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-menu-hook",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Responsive menu using react hooks",
   "main": "index.js",
   "module": "dist/react-responsive-menu.mjs",
@@ -61,5 +61,9 @@
   "dependencies": {
     "classnames": "^2.3.0",
     "warning": "^4.0.3"
-  }
+  },
+  "files": [
+    "dist",
+    "scripts"
+  ]
 }

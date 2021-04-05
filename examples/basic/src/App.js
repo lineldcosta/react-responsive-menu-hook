@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import ReactResponsiveMenu from '../../../dist/react-responsive-menu'
+import ReactResponsiveMenu from 'react-responsive-menu-hook'
 
 const style = {
   minWidth: '100px',
