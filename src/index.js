@@ -21,7 +21,7 @@ const ReactResponsiveMenu = ({ children }) => {
   const [menuItems, setMenuItems] = React.useState({})
   const [open, setOpen] = React.useState(false)
 
-  const toggle = value => setOpen(value)
+  const toggle = React.useCallback(value => setOpen(value), [setOpen])
 
   const observe = React.useCallback(
     elements => {
@@ -48,11 +48,9 @@ const ReactResponsiveMenu = ({ children }) => {
       threshold: 1,
     })
 
-    Array.from(navRef.current.children).forEach(item => {
-      if (item.dataset.targetid) {
-        observer.observe(item)
-      }
-    })
+    Array.from(navRef.current.children).forEach(
+      item => item.dataset.targetid && observer.observe(item)
+    )
     return observer
   }, [])
 
@@ -64,19 +62,6 @@ const ReactResponsiveMenu = ({ children }) => {
       toggle(false),
     [toggle]
   )
-
-  React.useEffect(() => {
-    const observer = attachObserver()
-    document.addEventListener('click', handleClickOutside)
-    return () => {
-      observer.disconnect()
-      document.removeEventListener('click', handleClickOutside)
-    }
-  }, [])
-
-  // React.useEffect(() => {
-  //   warning(!isFragment(children()), `Menu should wrapped inside fragment`)
-  // }, [children])
 
   const showEllipsis = React.useMemo(
     () => Object.values(menuItems).some(v => v === false),
@@ -138,9 +123,25 @@ const ReactResponsiveMenu = ({ children }) => {
     toggle,
   }
 
+  React.useEffect(() => {
+    const observer = attachObserver()
+    document.addEventListener('click', handleClickOutside)
+    return () => {
+      observer.disconnect()
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    warning(
+      isFragment(children(childProps)),
+      `Menu should wrapped inside fragment`
+    )
+  }, [])
+
   return (
     <div ref={navRef} style={styles.menuWrapper}>
-      {children({ ...childProps })}
+      {children(childProps)}
     </div>
   )
 }
