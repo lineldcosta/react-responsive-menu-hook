@@ -17,7 +17,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/react-responsive-menu.js',
+      file: 'dist/react-responsive-menu-hook.js',
       format: 'es',
       sourcemap: true,
     },
@@ -27,7 +27,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/react-responsive-menu.min.mjs',
+      file: 'dist/react-responsive-menu-hook.min.mjs',
       format: 'es',
       sourcemap: true,
     },
@@ -38,7 +38,7 @@ export default [
     input: 'src/index.js',
     output: {
       name: 'ReactResponsiveMenu',
-      file: 'dist/react-responsive-menu.development.js',
+      file: 'dist/react-responsive-menu-hook.development.js',
       format: 'umd',
       sourcemap: true,
       globals,
@@ -50,7 +50,7 @@ export default [
     input: 'src/index.js',
     output: {
       name: 'ReactResponsiveMenu',
-      file: 'dist/react-responsive-menu.production.min.js',
+      file: 'dist/react-responsive-menu-hook.production.min.js',
       format: 'umd',
       sourcemap: true,
       globals,
